@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Basic Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 1. Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px; /* Limits the resume width */
+            margin: 0 auto; /* Centers the resume on the page */
+            padding: 20px;
+        }
+
+        /* 2. Heading Styling */
+        h1 {
+            color: #333366; /* A dark blue color */
+        }
+
+        h2 {
+            color: #444; 
+            border-bottom: 2px solid #ccc; /* A light grey line for separation */
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+
+        /* 3. Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Removes double borders */
+        }
+
+        th, td {
+            border: 1px solid #ddd; /* Light grey border */
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* Optional: Make the list items a little prettier */
+        ul {
+            list-style-type: square; /* Changes the bullet point shape */
+            margin-left: 20px;
+        }
+
+        /* Optional: Center the image */
+        img {
+            display: block; /* Allows margin: auto to work */
+            margin: auto; 
+            border-radius: 5px;
+        }        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Yo-Ming Hsieh</h1>
+        <p>yo-ming@example.com | (123) 456-7890</p>
+        <img src="p-b80501049.jpg" alt="Yo-Ming Hsieh Profile Photo" width="100"> 
+    </header>
+
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>Node.js</li>
+        <li>Express.js</li>
+    </ul>
+
+    <h2>Education</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Degree/Certificate</th>
+                <th>Institution</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>B.S. in Civil and Construction Engineering</td>
+                <td>National Taiwan University of Science and Technology</td>
+                <td>1995</td>
+            </tr>
+            <tr>
+                <td>High School Diploma</td>
+                <td>Taipei Municipal Chien Kuo High School</td>
+                <td>1991</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
