@@ -1,31 +1,50 @@
 # lab1029
 ```mermaid 
 
-graph TD
-    subgraph S1 [4.1 建立數位標籤: 技術標準層]
-        A1[空間識別碼 Room Code] --- A2[資產識別碼 Asset ID]
-        A2 --- A3[指定 Link ID 索引]
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e1f5fe', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#fff'}}}%%
+graph LR
+    %% 定義階段 (橫軸)
+    subgraph Phase1 [階段一：準備與發包]
+        direction TB
+        A1[機關：產出專案 AIR] -->|放入標單| B1(統包：提交 BEP)
+        B1 -->|技術審查| C1[IM：出具 BEP 審查報告]
     end
 
-    subgraph S2 [4.2 填充數位內容: 資訊規格層 LOIN]
-        B1[G: 幾何資訊<br/>空間定義/維修淨空] 
-        B2[A: 非幾何屬性<br/>點交基準/維護履歷]
-        B3[D: 文件資訊<br/>模文分離/CDE連結]
+    subgraph Phase2 [階段二：數據淬鍊]
+        direction TB
+        B2(統包：建置 AIM & 植入 AIR) -->|提交模型| C2[IM：執行自動化 QC]
+        C2 -->|簽具合格證明| A2[機關：撥付 50% 服務費]
     end
 
-    subgraph S3 [4.3 數據封裝與移交: 成果交付層]
-        C1[原生模型檔<br/>.rvt / .pln]
-        C2[開放格式檔<br/>IFC4 RV]
-        C3[數據清冊<br/>COBie / Excel]
+    subgraph Phase3 [階段三：協同點交]
+        direction TB
+        B3(統包+物管：現場掃碼虛實對位) -->|提交清冊| C3[IM：簽署移交合格報告]
+        C3 -->|確認數據可用| D3(物管：簽署移交簽認單)
+        D3 -->|行政點收| A3[機關：撥付 20% 尾款]
     end
 
-    S1 -->|賦予身分| S2
-    S2 -->|結構化包裝| S3
-    S3 -->|移交| AIM((AIM 數位資產庫))
-    AIM -->|載入| FM[第五章: 維運管理平台應用]
+    subgraph Phase4 [階段四：動態維運]
+        direction TB
+        D4(物管：更新日常 AIR 汰換紀錄) -->|能源/智慧管理| A4[機關：營運決策與 LTRP]
+        A4 -.->|績效回饋| D4
+        B4(統包：保固期模型更新) -.->|維持 Link ID| D4
+        D4 -->|保固期滿查驗| C4[IM：保固金核退建議]
+    end
 
-    style AIM fill:#f96,stroke:#333,stroke-width:4px
-    style S1 fill:#e1f5fe,stroke:#01579b
-    style S2 fill:#fff3e0,stroke:#e65100
-    style S3 fill:#f1f8e9,stroke:#33691e
+    %% 連接階段
+    Phase1 ==> Phase2 ==> Phase3 ==> Phase4
+
+    %% 樣式定義
+    classDef owner fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef im fill:#ff9,stroke:#333,stroke-width:2px;
+    classDef contractor fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef fm fill:#dfd,stroke:#333,stroke-width:2px;
+
+    class A1,A2,A3,A4 owner;
+    class C1,C2,C3,C4 im;
+    class B1,B2,B3,B4 contractor;
+    class D3,D4 fm;
+
+
+
 ```
